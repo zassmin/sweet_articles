@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @articles = Article.all.group_by &:category 
+  end
+
   def show
-    @articles = Article.all.group_by &:category
     @article = Article.find_by_url "articles/#{params[:month]}/#{params[:day]}/#{params[:year]}/#{params[:title]}"
   end
 

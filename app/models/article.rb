@@ -1,6 +1,9 @@
 class Article < ActiveRecord::Base
   before_create :set_url
 
+  belongs_to :category
+  has_one :url
+
   private
   def set_url
     time = Time.now

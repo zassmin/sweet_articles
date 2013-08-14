@@ -7,6 +7,8 @@ SweetArticles::Application.routes.draw do
   match '/categories/:name/articles', to: 'articles#show', via: [:get]
   # /tag/:name/articles
   match '/tag/:name/articles', to: 'articles#show', via: [:get]
+  # /
+  root 'articles#index'
 
-  resources :articles, only: [:new, :create]
+  resources :articles, only: [:new, :create, :index]
 end

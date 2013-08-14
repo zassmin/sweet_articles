@@ -12,9 +12,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new params[:article]
     if @article.save
-      redirect_to @article
+      redirect_to root_path
     else
       p "did not save"
+      render 'new'
     end
   end
 
